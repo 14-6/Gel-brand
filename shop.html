@@ -51,7 +51,7 @@
             <div class="product-info">
                 <h3>GEL Signature Tee</h3>
                 <p class="price">120 QAR</p>
-                <button class="add-to-cart" onclick="addToCart('GEL Signature Tee', 120, 'IMG/IMG_4255.JPG')">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('GEL Signature Tee', 120, 'IMG/IMG_4255.JPG', event)">Add to Cart</button>
             </div>
         </div>
         <div class="gallery-item">
@@ -59,7 +59,7 @@
             <div class="product-info">
                 <h3>GEL Urban Jacket</h3>
                 <p class="price">450 QAR</p>
-                <button class="add-to-cart" onclick="addToCart('GEL Urban Jacket', 450, 'IMG/IMG_4256.JPG')">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('GEL Urban Jacket', 450, 'IMG/IMG_4256.JPG', event)">Add to Cart</button>
             </div>
         </div>
         <div class="gallery-item">
@@ -67,7 +67,7 @@
             <div class="product-info">
                 <h3>GEL Classic Cap</h3>
                 <p class="price">85 QAR</p>
-                <button class="add-to-cart" onclick="addToCart('GEL Classic Cap', 85, 'IMG/IMG_4254.JPG')">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('GEL Classic Cap', 85, 'IMG/IMG_4254.JPG', event)">Add to Cart</button>
             </div>
         </div>
         <div class="gallery-item">
@@ -75,7 +75,7 @@
             <div class="product-info">
                 <h3>GEL Minimalist Shorts</h3>
                 <p class="price">110 QAR</p>
-                <button class="add-to-cart" onclick="addToCart('GEL Minimalist Shorts', 110, 'IMG/IMG_4258.PNG')">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('GEL Minimalist Shorts', 110, 'IMG/IMG_4258.PNG', event)">Add to Cart</button>
             </div>
         </div>
     </section>
@@ -98,16 +98,5 @@
     </footer>
 
     <script src="main.js"></script>
-    <script>
-        // تشغيل الحركة فور فتح صفحة المتجر
-        window.onload = () => {
-            const items = document.querySelectorAll('.gallery-item');
-            items.forEach((item, index) => {
-                setTimeout(() => {
-                    item.classList.add('reveal');
-                }, index * 150);
-            });
-        };
-    </script>
 </body>
 </html>

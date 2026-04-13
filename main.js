@@ -43,20 +43,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // 3. تشغيل الحركات عند تحميل الصفحة بالكامل
-window.onload = function() {
+// Use addEventListener to prevent overwriting other scripts
+window.addEventListener('load', function() {
     window.scrollTo(0, 0);
     revealContent();
     updateCartUI(); // تحديث السلة عند التحميل
-};
+});
 
 // --- نظام سلة المشتريات (Shopping Cart System) ---
 let cart = JSON.parse(localStorage.getItem('gel_cart')) || [];
 
 function toggleCart() {
-    document.getElementById('cart-sidebar').classList.toggle('active');
+    const sidebar = document.getElementById('cart-sidebar');
+    if (sidebar) sidebar.classList.toggle('active');
 }
 
-function addToCart(name, price, img) {
+function addToCart(name, price, img, event) {
     const existingItem = cart.find(item => item.name === name);
     
     if (existingItem) {
@@ -69,14 +71,17 @@ function addToCart(name, price, img) {
     saveCart();
     updateCartUI();
     
-    const btn = event.target;
-    const originalText = btn.innerText;
-    btn.innerText = "Added!";
-    btn.style.background = "#2ed573";
-    setTimeout(() => {
-        btn.innerText = originalText;
-        btn.style.background = ""; // Clear inline style to allow CSS hover to work
-    }, 500);
+    // Check if event and target exist (safeguard)
+    const btn = event ? event.target : null;
+    if (btn) {
+        const originalText = btn.innerText;
+        btn.innerText = "Added!";
+        btn.style.background = "#2ed573";
+        setTimeout(() => {
+            btn.innerText = originalText;
+            btn.style.background = ""; // Clear inline style to allow CSS hover to work
+        }, 500);
+    }
 }
 
 // وظيفة جديدة لتغيير الكمية (زيادة أو نقصان)
