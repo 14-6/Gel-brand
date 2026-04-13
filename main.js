@@ -71,16 +71,16 @@ function addToCart(name, price, img, event) {
     saveCart();
     updateCartUI();
     
-    // Check if event and target exist (safeguard)
-    const btn = event ? event.target : null;
+    // Feedback feedback: turn button green
+    const btn = event ? event.currentTarget : null;
     if (btn) {
         const originalText = btn.innerText;
         btn.innerText = "Added!";
-        btn.style.background = "#2ed573";
+        btn.classList.add('success');
         setTimeout(() => {
             btn.innerText = originalText;
-            btn.style.background = ""; // Clear inline style to allow CSS hover to work
-        }, 500);
+            btn.classList.remove('success');
+        }, 1000);
     }
 }
 
