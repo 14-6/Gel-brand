@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>GEL Brand | About</title>
+</head>
+<body>
+    <header dir="ltr">
+        <h2><a href="index.html" class="logo">Gel</a></h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li class="cart-icon" onclick="toggleCart()">
+                <a href="javascript:void(0)"><i class="fas fa-shopping-bag"></i> <span id="cart-count">0</span></a>
+            </li>
+        </ul>
+    </header>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Bag</h3>
+            <i class="fas fa-times close-cart" onclick="toggleCart()"></i>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-msg">Your bag is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total">
+                <span>Total:</span>
+                <span id="cart-total">0 QAR</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <section class="hero" style="opacity: 1;">
+        <div class="hero-content" style="opacity: 1; transform: none;">
+            <h1>رؤيتنا في GEL</h1>
+            <p>بدأت رحلتنا بشغف لخلق ملابس تعكس روح العصر. في GEL، نحن لا نصمم مجرد أزياء، بل نصنع تجربة فريدة تمزج بين الفخامة والراحة اليومية.</p>
+            <p>كل قطعة في مجموعتنا مختارة بعناية لضمان أعلى مستويات الجودة وأدق التفاصيل التي تليق بذوقكم الرفيع.</p>
+        </div>
+        <div class="hero-image" style="opacity: 1; transform: none;">
+             <img src="IMG/IMG_4255.JPG" alt="Our Story">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <h3>GEL</h3>
+            <p>Premium apparel for the modern generation.</p>
+            
+            <ul class="socials" dir="ltr">
+                <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a href="#"><i class="fab fa-x-twitter"></i> Twitter</a></li>
+                <li><a href="https://www.tiktok.com/@gelvogue?_r=1&_t=ZS-955QQ4w1Pfh" target="_blank"><i class="fab fa-tiktok"></i> Tiktok</a></li>
+            </ul>
+
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GEL Brand. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
