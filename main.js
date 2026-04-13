@@ -167,6 +167,6 @@ function checkout() {
     });
     message += `\nFinal Total: ${document.getElementById('cart-total').innerText}`;
     
-    const whatsappUrl = `https://wa.me/966500000000?text=${encodeURIComponent(message)}`; 
+    const whatsappUrl = `https://wa.me/97431121124?text=${encodeURIComponent(message)}`; 
     window.open(whatsappUrl, '_blank');
 }
