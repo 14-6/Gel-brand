@@ -10,43 +10,44 @@
 </head>
 <body>
 
-    <header dir="ltr">
+    <header>
         <h2><a href="index.html" class="logo">Gel</a></h2>
         <ul>
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="index.html" class="active" data-i18n="nav_home">الرئيسية</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
+            <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+            <li><a href="shop.html" data-i18n="nav_shop">المتجر</a></li>
             <li class="cart-icon" onclick="toggleCart()">
                 <a href="javascript:void(0)"><i class="fas fa-shopping-bag"></i> <span id="cart-count">0</span></a>
             </li>
+            <li><button class="lang-switch" onclick="toggleLanguage()" data-i18n="lang_btn">English</button></li>
         </ul>
     </header>
     
     <!-- Shopping Cart Sidebar -->
     <div id="cart-sidebar" class="cart-sidebar">
         <div class="cart-header">
-            <h3>Your Bag</h3>
+            <h3 data-i18n="cart_title">حقيبتك</h3>
             <i class="fas fa-times close-cart" onclick="toggleCart()"></i>
         </div>
         <div id="cart-items" class="cart-items">
             <!-- Items will appear here -->
-            <p class="empty-msg">Your bag is empty.</p>
+            <p class="empty-msg" data-i18n="cart_empty">حقيبتك فارغة</p>
         </div>
         <div class="cart-footer">
             <div class="total">
-                <span>Total:</span>
+                <span data-i18n="cart_total">الإجمالي</span>:
                 <span id="cart-total">0 QAR</span>
             </div>
-            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+            <button class="checkout-btn" onclick="checkout()" data-i18n="cart_checkout">إتمام الطلب</button>
         </div>
     </div>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>GEL BRAND</h1>
-            <p>نحن لا نبيع الملابس فقط، نحن نصنع أسلوب حياة يجمع بين الفخامة والراحة العصرية. اكتشف مجموعتنا المختارة بعناية لتناسب ذوقك الرفيع.</p>
-            <a href="#gallery" class="hero-btn">تصفح المنتجات</a>
+            <h1 data-i18n="hero_title">GEL BRAND</h1>
+            <p data-i18n="hero_desc">نحن لا نبيع الملابس فقط، نحن نصنع أسلوب حياة يجمع بين الفخامة والراحة العصرية. اكتشف مجموعتنا المختارة بعناية لتناسب ذوقك الرفيع.</p>
+            <a href="#gallery" class="hero-btn" data-i18n="hero_btn">تصفح المنتجات</a>
         </div>
         <div class="hero-image">
             <img src="IMG/IMG_4253.JPG" alt="Brand Story">
@@ -59,7 +60,7 @@
             <div class="product-info">
                 <h3>GEL Signature Tee</h3>
                 <p class="price">120 QAR</p>
-                <button class="add-to-cart" onclick="addToCart('GEL Signature Tee', 120, 'IMG/IMG_4255.JPG', event)">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('GEL Signature Tee', 120, 'IMG/IMG_4255.JPG', event)" data-i18n="add_to_cart">أضف للسلة</button>
             </div>
         </div>
         <div class="gallery-item">
@@ -67,7 +68,7 @@
             <div class="product-info">
                 <h3>GEL Oversized Hoodie</h3>
                 <p class="price">250 QAR</p>
-                <button class="add-to-cart" onclick="addToCart('GEL Oversized Hoodie', 250, 'IMG/IMG_4253.JPG', event)">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('GEL Oversized Hoodie', 250, 'IMG/IMG_4253.JPG', event)" data-i18n="add_to_cart">أضف للسلة</button>
             </div>
         </div>
         <div class="gallery-item">
@@ -75,7 +76,7 @@
             <div class="product-info">
                 <h3>GEL Classic Cap</h3>
                 <p class="price">85 QAR</p>
-                <button class="add-to-cart" onclick="addToCart('GEL Classic Cap', 85, 'IMG/IMG_4254.JPG', event)">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('GEL Classic Cap', 85, 'IMG/IMG_4254.JPG', event)" data-i18n="add_to_cart">أضف للسلة</button>
             </div>
         </div>
         <div class="gallery-item">
@@ -83,7 +84,7 @@
             <div class="product-info">
                 <h3>GEL Urban Jacket</h3>
                 <p class="price">450 QAR</p>
-                <button class="add-to-cart" onclick="addToCart('GEL Urban Jacket', 450, 'IMG/IMG_4256.JPG', event)">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('GEL Urban Jacket', 450, 'IMG/IMG_4256.JPG', event)" data-i18n="add_to_cart">أضف للسلة</button>
             </div>
         </div>
         <div class="gallery-item">
@@ -91,7 +92,7 @@
             <div class="product-info">
                 <h3>GEL Minimalist Shorts</h3>
                 <p class="price">110 QAR</p>
-                <button class="add-to-cart" onclick="addToCart('GEL Minimalist Shorts', 110, 'IMG/IMG_4258.PNG', event)">Add to Cart</button>
+                <button class="add-to-cart" onclick="addToCart('GEL Minimalist Shorts', 110, 'IMG/IMG_4258.PNG', event)" data-i18n="add_to_cart">أضف للسلة</button>
             </div>
         </div>
     </section>
@@ -99,7 +100,7 @@
     <footer>
         <div class="footer-content">
             <h3>GEL</h3>
-            <p>Premium apparel for the modern generation.</p>
+            <p data-i18n="footer_desc">ملابس فاخرة للجيل العصري.</p>
             
             <ul class="socials" dir="ltr">
                 <li><a href="https://wa.me/97431121124?text=Welcome%20to%20GEL%20Brand!%20Thank%20you%20for%20reaching%20out.%20Please%20leave%20your%20inquiry%20or%20order%20number,%20and%20our%20team%20will%20get%20back%20to%20you%20shortly" target="_blank"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
@@ -110,7 +111,7 @@
 
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 GEL Brand. All rights reserved.</p>
+            <p data-i18n="footer_rights">جميع الحقوق محفوظة © 2026 براند GEL.</p>
         </div>
     </footer>
 

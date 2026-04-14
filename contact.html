@@ -9,54 +9,55 @@
     <title>GEL Brand | Contact</title>
 </head>
 <body>
-    <header dir="ltr">
+    <header>
         <h2><a href="index.html" class="logo">Gel</a></h2>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="shop.html">Shop</a></li>
+            <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+            <li><a href="contact.html" class="active" data-i18n="nav_contact">تواصل معنا</a></li>
+            <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
+            <li><a href="shop.html" data-i18n="nav_shop">المتجر</a></li>
             <li class="cart-icon" onclick="toggleCart()">
                 <a href="javascript:void(0)"><i class="fas fa-shopping-bag"></i> <span id="cart-count">0</span></a>
             </li>
+            <li><button class="lang-switch" onclick="toggleLanguage()" data-i18n="lang_btn">English</button></li>
         </ul>
     </header>
 
     <!-- Shopping Cart Sidebar -->
     <div id="cart-sidebar" class="cart-sidebar">
         <div class="cart-header">
-            <h3>Your Bag</h3>
+            <h3 data-i18n="cart_title">حقيبتك</h3>
             <i class="fas fa-times close-cart" onclick="toggleCart()"></i>
         </div>
         <div id="cart-items" class="cart-items">
-            <p class="empty-msg">Your bag is empty.</p>
+            <p class="empty-msg" data-i18n="cart_empty">حقيبتك فارغة</p>
         </div>
         <div class="cart-footer">
             <div class="total">
-                <span>Total:</span>
+                <span data-i18n="cart_total">الإجمالي</span>:
                 <span id="cart-total">0 QAR</span>
             </div>
-            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+            <button class="checkout-btn" onclick="checkout()" data-i18n="cart_checkout">إتمام الطلب</button>
         </div>
     </div>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>تواصل معنا</h1>
-            <p>نحن هنا لمساعدتك دائماً. يمكنك مراسلتنا عبر النموذج التالي:</p>
+            <h1 data-i18n="contact_title">تواصل معنا</h1>
+            <p data-i18n="contact_desc">نحن هنا لمساعدتك دائماً. يمكنك مراسلتنا عبر النموذج التالي:</p>
             <form action="https://formsubmit.co/gelvoguee@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
                 <!-- Honey Pot (Anti-spam) -->
                 <input type="text" name="_honey" style="display:none">
                 <!-- Disable Captcha for better UX -->
                 <input type="hidden" name="_captcha" value="false">
                 
-                <input type="text" name="name" placeholder="الاسم" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
-                <input type="email" name="email" placeholder="البريد الإلكتروني" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
-                <textarea name="message" placeholder="رسالتك" rows="4" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;"></textarea>
-                <button type="submit" class="hero-btn">إرسال</button>
+                <input type="text" name="name" placeholder="الاسم" data-i18n="contact_name" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                <input type="email" name="email" placeholder="البريد الإلكتروني" data-i18n="contact_email" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
+                <textarea name="message" placeholder="رسالتك" data-i18n="contact_msg" rows="4" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;"></textarea>
+                <button type="submit" class="hero-btn" data-i18n="contact_send">إرسال</button>
             </form>
             <div class="whatsapp-contact" style="margin-top: 30px;">
-                <p style="margin-bottom: 15px; color: #555;">أو تواصل معنا مباشرة عبر واتساب:</p>
+                <p style="margin-bottom: 15px; color: #555;" data-i18n="contact_whatsapp">أو تواصل معنا مباشرة عبر واتساب:</p>
                 <a href="https://wa.me/97431121124?text=Welcome%20to%20GEL%20Brand!%20Thank%20you%20for%20reaching%20out.%20Please%20leave%20your%20inquiry%20or%20order%20number,%20and%20our%20team%20will%20get%20back%20to%20you%20shortly" target="_blank" class="hero-btn" style="background: #25D366; color: white;">
                     <i class="fab fa-whatsapp"></i> واتساب
                 </a>
@@ -70,7 +71,7 @@
     <footer>
         <div class="footer-content">
             <h3>GEL</h3>
-            <p>Premium apparel for the modern generation.</p>
+            <p data-i18n="footer_desc">ملابس فاخرة للجيل العصري.</p>
             
             <ul class="socials" dir="ltr">
                 <li><a href="https://wa.me/97431121124?text=Welcome%20to%20GEL%20Brand!%20Thank%20you%20for%20reaching%20out.%20Please%20leave%20your%20inquiry%20or%20order%20number,%20and%20our%20team%20will%20get%20back%20to%20you%20shortly" target="_blank"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
@@ -81,7 +82,7 @@
 
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 GEL Brand. All rights reserved.</p>
+            <p data-i18n="footer_rights">جميع الحقوق محفوظة © 2026 براند GEL.</p>
         </div>
     </footer>
     <script src="main.js"></script>
