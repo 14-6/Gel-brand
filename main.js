@@ -80,7 +80,7 @@ function addToCart(name, price, img, event) {
         setTimeout(() => {
             btn.innerText = originalText;
             btn.classList.remove('success');
-        }, 1000);
+        }, 300);
     }
 }
 

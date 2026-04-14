@@ -216,7 +216,14 @@ header ul li a.active {
 .add-to-cart.success {
     background: #2ed573 !important;
     transform: scale(0.98);
+    transition: background 0.1s ease; /* Faster transition for faster feedback */
 }
+
+/* Social Media Hover Colors */
+.socials li a:hover i.fa-instagram { color: #E1306C; }
+.socials li a:hover i.fa-x-twitter { color: #1DA1F2; }
+.socials li a:hover i.fa-tiktok { color: #00f2ea; }
+.socials li a:hover i.fa-whatsapp { color: #25D366; }
 
 /* 5. Shopping Cart Drawer */
 .cart-icon {
