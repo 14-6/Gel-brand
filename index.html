@@ -20,7 +20,20 @@
             <li class="cart-icon" onclick="toggleCart()">
                 <a href="javascript:void(0)"><i class="fas fa-shopping-bag"></i> <span id="cart-count">0</span></a>
             </li>
-            <li><button class="lang-switch" onclick="toggleLanguage()" data-i18n="lang_btn">English</button></li>
+            <li class="lang-switcher-container">
+                <button class="lang-btn" onclick="toggleLangDropdown()">
+                    <i class="fas fa-globe"></i>
+                    <span id="current-lang-label">العربية</span>
+                </button>
+                <div class="lang-dropdown" id="lang-dropdown">
+                    <div class="lang-option" onclick="setLanguage('ar'); toggleLangDropdown()">
+                        <span>العربية</span>
+                    </div>
+                    <div class="lang-option" onclick="setLanguage('en'); toggleLangDropdown()">
+                        <span>English</span>
+                    </div>
+                </div>
+            </li>
         </ul>
     </header>
     
@@ -102,7 +115,7 @@
             <h3>GEL</h3>
             <p data-i18n="footer_desc">ملابس فاخرة للجيل العصري.</p>
             
-            <ul class="socials" dir="ltr">
+            <ul class="socials">
                 <li><a href="https://wa.me/97431121124?text=Welcome%20to%20GEL%20Brand!%20Thank%20you%20for%20reaching%20out.%20Please%20leave%20your%20inquiry%20or%20order%20number,%20and%20our%20team%20will%20get%20back%20to%20you%20shortly" target="_blank"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
                 <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
                 <li><a href="#"><i class="fab fa-x-twitter"></i> Twitter</a></li>

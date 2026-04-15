@@ -68,8 +68,8 @@ function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('gel_lang', lang);
     
-    // Update direction and font
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    // KEEP RTL for both languages as requested
+    document.documentElement.dir = 'rtl';
     document.documentElement.lang = lang;
     
     // Update all elements with data-i18n
@@ -84,6 +84,12 @@ function setLanguage(lang) {
         }
     });
 
+    // Update the language button text/icon if needed
+    const langLabel = document.getElementById('current-lang-label');
+    if (langLabel) {
+        langLabel.textContent = lang === 'ar' ? 'العربية' : 'English';
+    }
+
     // Specific update for Add to Cart buttons that aren't dynamic
     document.querySelectorAll('.add-to-cart').forEach(btn => {
         if (!btn.classList.contains('success')) {
@@ -94,10 +100,19 @@ function setLanguage(lang) {
     updateCartUI(); // Refresh cart text
 }
 
-function toggleLanguage() {
-    const nextLang = currentLang === 'ar' ? 'en' : 'ar';
-    setLanguage(nextLang);
+function toggleLangDropdown() {
+    const dropdown = document.getElementById('lang-dropdown');
+    if (dropdown) dropdown.classList.toggle('active');
 }
+
+// Close dropdown when clicking outside
+window.addEventListener('click', function(e) {
+    const dropdown = document.getElementById('lang-dropdown');
+    const langBtn = document.querySelector('.lang-switcher-container');
+    if (dropdown && !langBtn.contains(e.target)) {
+        dropdown.classList.remove('active');
+    }
+});
 
 // 1. وظيفة تشغيل الحركات عند تحميل الصفحة بالكامل
 function revealContent() {
