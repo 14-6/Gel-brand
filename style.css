@@ -532,60 +532,102 @@ footer {
 /* Mobile Devices */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        padding: 12px 5%;
-        gap: 12px;
-    }
-
-    /* Keep Cart and Logo on same row if possible */
-    header {
-        display: grid;
-        grid-template-areas: 
-            "logo cart"
-            "nav nav";
-        grid-template-columns: 1fr auto;
-        justify-items: center;
-    }
-
-    header .logo {
-        grid-area: logo;
-        justify-self: start;
-        font-size: 22px;
-    }
-
-    /* Target the cart icon which is inside the ul... this is tricky without restructuring HTML */
-    /* Instead, I will use flex and order */
-    header {
         display: flex;
-        flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        gap: 10px;
     }
 
     header .logo {
-        flex: 1;
-        text-align: left;
+        font-size: 22px;
+        order: 1;
+    }
+
+    /* Keep language switcher and cart together on the right */
+    header ul {
+        width: 100%;
+        order: 3;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        background: #f9f9f9;
+        padding: 10px;
+        border-radius: 12px;
+        margin-top: 5px;
+    }
+
+    /* Move cart and lang switcher to top row next to logo */
+    header ul li.cart-icon, 
+    header ul li.lang-switcher-container {
+        position: static;
+        order: 2;
+    }
+
+    /* Special handling to pull cart and lang out of the nav list on mobile if needed, 
+       but for now we'll just make the header flex better */
+    
+    header {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        align-items: center;
+    }
+
+    header .logo {
+        grid-column: 1;
+    }
+
+    /* We need to restructure the mobile header to be truly tidy */
+    header ul {
+        grid-column: 1 / span 3;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 8px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* To fix the user's specific issue: "Gel" above "Basket" 
+       We will use absolute positioning for the cart ONLY on mobile 
+       to keep it in the top row. */
+    
+    header {
+        position: sticky;
+        display: block; /* Stack rows */
+        text-align: center;
+    }
+
+    header .logo {
+        display: inline-block;
+        margin: 5px 0;
     }
 
     header ul {
-        width: 100%;
+        display: flex;
         justify-content: center;
-        order: 3;
-        margin-top: 10px;
-        background: #f9f9f9;
-        padding: 10px;
-        border-radius: 10px;
+        flex-wrap: wrap;
+        padding: 5px;
+        background: none;
+        box-shadow: none;
     }
 
+    /* The Fix: Position cart and lang switcher absolutely in the top corners 
+       so the Logo stays centered and not stacked with them. */
     header ul li.cart-icon {
-        order: -1; /* This won't work on li, only on flex items */
+        position: absolute;
+        top: 18px;
+        left: 5%; /* Basket on left */
+    }
+
+    header ul li.lang-switcher-container {
         position: absolute;
         top: 15px;
-        right: 5%;
+        right: 5%; /* Lang on right */
     }
 
     header ul li a {
-        padding: 5px 8px;
+        padding: 6px 10px;
         font-size: 12px;
     }
 
