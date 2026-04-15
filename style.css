@@ -99,11 +99,11 @@ header ul li a.active {
 .lang-dropdown {
     position: absolute;
     top: 45px;
-    left: 0;
+    right: 0;
     background: white;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    width: 150px;
+    width: 140px;
     padding: 10px;
     opacity: 0;
     visibility: hidden;
@@ -533,97 +533,46 @@ footer {
 @media (max-width: 768px) {
     header {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        flex-direction: column;
         align-items: center;
         padding: 15px 5%;
-        gap: 10px;
-    }
-
-    header .logo {
-        font-size: 22px;
-        order: 1;
-    }
-
-    /* Keep language switcher and cart together on the right */
-    header ul {
-        width: 100%;
-        order: 3;
-        display: flex;
-        justify-content: center;
-        gap: 8px;
-        background: #f9f9f9;
-        padding: 10px;
-        border-radius: 12px;
-        margin-top: 5px;
-    }
-
-    /* Move cart and lang switcher to top row next to logo */
-    header ul li.cart-icon, 
-    header ul li.lang-switcher-container {
-        position: static;
-        order: 2;
-    }
-
-    /* Special handling to pull cart and lang out of the nav list on mobile if needed, 
-       but for now we'll just make the header flex better */
-    
-    header {
-        display: grid;
-        grid-template-columns: 1fr auto auto;
-        align-items: center;
-    }
-
-    header .logo {
-        grid-column: 1;
-    }
-
-    /* We need to restructure the mobile header to be truly tidy */
-    header ul {
-        grid-column: 1 / span 3;
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        padding: 8px;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* To fix the user's specific issue: "Gel" above "Basket" 
-       We will use absolute positioning for the cart ONLY on mobile 
-       to keep it in the top row. */
-    
-    header {
         position: sticky;
-        display: block; /* Stack rows */
+        top: 0;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.98);
         text-align: center;
     }
 
     header .logo {
-        display: inline-block;
-        margin: 5px 0;
+        font-size: 24px;
+        margin: 0;
+        display: block;
+        width: 100%;
     }
 
     header ul {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        padding: 5px;
+        gap: 5px;
+        padding: 0;
+        width: 100%;
         background: none;
         box-shadow: none;
+        border-radius: 0;
+        margin-top: 0;
     }
 
-    /* The Fix: Position cart and lang switcher absolutely in the top corners 
-       so the Logo stays centered and not stacked with them. */
     header ul li.cart-icon {
         position: absolute;
-        top: 18px;
-        left: 5%; /* Basket on left */
+        top: 20px;
+        left: 5%;
     }
 
     header ul li.lang-switcher-container {
         position: absolute;
         top: 15px;
-        right: 5%; /* Lang on right */
+        right: 5%;
     }
 
     header ul li a {
@@ -683,7 +632,7 @@ footer {
     
     .gallery-item {
         width: 100%;
-        max-width: 320px;
+        max-width: 300px;
     }
 
     .cart-sidebar { width: 100%; max-width: 100%; }
