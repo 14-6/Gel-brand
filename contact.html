@@ -10,12 +10,17 @@
 </head>
 <body>
     <header>
-        <h2><a href="index.html" class="logo">Gel</a></h2>
+        <h2>
+            <a href="index.html" class="logo-container">
+                <img src="IMG/Logo.PNG" alt="GEL Logo" class="logo-img">
+                <span class="logo" data-i18n="nav_brand">Gel</span>
+            </a>
+        </h2>
         <ul>
             <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+            <li><a href="shop.html" data-i18n="nav_shop">المتجر</a></li>
             <li><a href="contact.html" class="active" data-i18n="nav_contact">تواصل معنا</a></li>
             <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
-            <li><a href="shop.html" data-i18n="nav_shop">المتجر</a></li>
             <li class="cart-icon" onclick="toggleCart()">
                 <a href="javascript:void(0)"><i class="fas fa-shopping-bag"></i> <span id="cart-count">0</span></a>
             </li>
@@ -54,36 +59,38 @@
         </div>
     </div>
 
-    <section class="hero">
-        <div class="hero-content">
+   <!-- Contact Hero Section -->
+    <section class="hero contact-hero">
+        <div class="hero-content contact-content">
             <h1 data-i18n="contact_title">تواصل معنا</h1>
-            <p data-i18n="contact_desc">نحن هنا لمساعدتك دائماً. يمكنك مراسلتنا عبر النموذج التالي:</p>
-            <form action="https://formsubmit.co/gelvoguee@gmail.com" method="POST" style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
-                <!-- Honey Pot (Anti-spam) -->
-                <input type="text" name="_honey" style="display:none">
-                <!-- Disable Captcha for better UX -->
-                <input type="hidden" name="_captcha" value="false">
-                
-                <input type="text" name="name" placeholder="الاسم" data-i18n="contact_name" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
-                <input type="email" name="email" placeholder="البريد الإلكتروني" data-i18n="contact_email" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;">
-                <textarea name="message" placeholder="رسالتك" data-i18n="contact_msg" rows="4" required style="padding: 10px; border-radius: 5px; border: 1px solid #ddd;"></textarea>
-                <button type="submit" class="hero-btn" data-i18n="contact_send">إرسال</button>
+            <p class="contact-subtitle" data-i18n="contact_desc">هل لديك سؤال أو تحتاج إلى مساعدة؟ أرسل لنا رسالة أو تواصل معنا عبر الواتساب.</p>
+            
+            <form action="https://formsubmit.co/YOUR_EMAIL" method="POST" class="contact-form-modern">
+                <input type="text" name="name" placeholder="الاسم" data-i18n-placeholder="contact_name_ph" required>
+                <input type="email" name="email" placeholder="البريد الإلكتروني" data-i18n-placeholder="contact_email_ph" required>
+                <textarea name="message" rows="5" placeholder="رسالتك" data-i18n-placeholder="contact_msg_ph" required></textarea>
+                <button type="submit" class="contact-submit-btn" data-i18n="contact_send_btn">إرسال</button>
             </form>
-            <div class="whatsapp-contact" style="margin-top: 30px;">
-                <p style="margin-bottom: 15px; color: #555;" data-i18n="contact_whatsapp">أو تواصل معنا مباشرة عبر واتساب:</p>
-                <a href="https://wa.me/97431121124?text=Welcome%20to%20GEL%20Brand!%20Thank%20you%20for%20reaching%20out.%20Please%20leave%20your%20inquiry%20or%20order%20number,%20and%20our%20team%20will%20get%20back%20to%20you%20shortly" target="_blank" class="hero-btn" style="background: #25D366; color: white;">
-                    <i class="fab fa-whatsapp"></i> واتساب
+
+            <div class="whatsapp-card">
+                <span data-i18n="whatsapp_text">أو تواصل معنا مباشرة عبر الواتساب:</span>
+                <a href="https://wa.me/97431121124" class="whatsapp-link" target="_blank">
+                    <i class="fab fa-whatsapp"></i> <span data-i18n="whatsapp_btn">واتساب</span>
                 </a>
             </div>
         </div>
-        <div class="hero-image">
-             <img src="IMG/IMG_4259.PNG" alt="Contact Us">
+
+        <div class="hero-logo">
+            <img src="IMG/Logo.PNG" alt="GEL Owl Logo">
         </div>
     </section>
 
     <footer>
         <div class="footer-content">
-            <h3>GEL</h3>
+            <div class="footer-logo-container">
+                <img src="IMG/Logo.PNG" alt="GEL Logo" class="footer-logo-img">
+                <h3 data-i18n="nav_brand">Gel</h3>
+            </div>
             <p data-i18n="footer_desc">ملابس فاخرة للجيل العصري.</p>
             
             <ul class="socials">
@@ -98,6 +105,22 @@
             <p data-i18n="footer_rights">جميع الحقوق محفوظة © 2026 براند GEL.</p>
         </div>
     </footer>
+
+    <!-- AI Chat Widget -->
+    <link rel="stylesheet" href="ai-chat.css">
+    <div id="ai-chat-container"></div>
+    <script src="ai-chat.js"></script>
+    <script>
+        fetch('ai-chat.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('ai-chat-container').innerHTML = data;
+                if (typeof setLanguage === 'function') {
+                    setLanguage(currentLang);
+                }
+            });
+    </script>
+
     <script src="main.js"></script>
 </body>
 </html>

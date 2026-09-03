@@ -11,12 +11,17 @@
 <body>
 
     <header>
-        <h2><a href="index.html" class="logo">Gel</a></h2>
+        <h2>
+            <a href="index.html" class="logo-container">
+                <img src="IMG/Logo.PNG" alt="GEL Logo" class="logo-img">
+                <span class="logo" data-i18n="nav_brand">Gel</span>
+            </a>
+        </h2>
         <ul>
             <li><a href="index.html" class="active" data-i18n="nav_home">الرئيسية</a></li>
+            <li><a href="shop.html" data-i18n="nav_shop">المتجر</a></li>
             <li><a href="contact.html" data-i18n="nav_contact">تواصل معنا</a></li>
             <li><a href="about.html" data-i18n="nav_about">من نحن</a></li>
-            <li><a href="shop.html" data-i18n="nav_shop">المتجر</a></li>
             <li class="cart-icon" onclick="toggleCart()">
                 <a href="javascript:void(0)"><i class="fas fa-shopping-bag"></i> <span id="cart-count">0</span></a>
             </li>
@@ -56,14 +61,15 @@
         </div>
     </div>
 
+<!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1 data-i18n="hero_title">GEL BRAND</h1>
+            <h1>GEL BRAND</h1>
             <p data-i18n="hero_desc">نحن لا نبيع الملابس فقط، نحن نصنع أسلوب حياة يجمع بين الفخامة والراحة العصرية. اكتشف مجموعتنا المختارة بعناية لتناسب ذوقك الرفيع.</p>
-            <a href="#gallery" class="hero-btn" data-i18n="hero_btn">تصفح المنتجات</a>
+            <a href="shop.html" class="hero-btn" data-i18n="hero_btn">تصفح المنتجات</a>
         </div>
-        <div class="hero-image">
-            <img src="IMG/IMG_4253.JPG" alt="Brand Story">
+        <div class="hero-logo">
+            <img src="IMG/Logo.PNG" alt="GEL Owl Logo">
         </div>
     </section>
 
@@ -77,6 +83,7 @@
             </div>
         </div>
         <div class="gallery-item">
+            
             <img src="IMG/IMG_4253.JPG" alt="Product 2">
             <div class="product-info">
                 <h3>GEL Oversized Hoodie</h3>
@@ -112,7 +119,10 @@
 
     <footer>
         <div class="footer-content">
-            <h3>GEL</h3>
+            <div class="footer-logo-container">
+                <img src="IMG/Logo.PNG" alt="GEL Logo" class="footer-logo-img">
+                <h3 data-i18n="nav_brand">Gel</h3>
+            </div>
             <p data-i18n="footer_desc">ملابس فاخرة للجيل العصري.</p>
             
             <ul class="socials">
@@ -127,6 +137,21 @@
             <p data-i18n="footer_rights">جميع الحقوق محفوظة © 2026 براند GEL.</p>
         </div>
     </footer>
+
+    <!-- AI Chat Widget -->
+    <link rel="stylesheet" href="ai-chat.css">
+    <div id="ai-chat-container"></div>
+    <script src="ai-chat.js"></script>
+    <script>
+        fetch('ai-chat.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('ai-chat-container').innerHTML = data;
+                if (typeof setLanguage === 'function') {
+                    setLanguage(currentLang);
+                }
+            });
+    </script>
 
     <script src="main.js"></script>
 </body>

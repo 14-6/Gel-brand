@@ -1,6 +1,7 @@
 // --- Translation System ---
 const translations = {
     ar: {
+        nav_brand: "GEL",
         nav_home: "الرئيسية",
         nav_contact: "تواصل معنا",
         nav_about: "من نحن",
@@ -22,15 +23,23 @@ const translations = {
         contact_send: "إرسال",
         contact_whatsapp: "أو تواصل معنا مباشرة عبر واتساب:",
         about_title: "رؤيتنا في GEL",
-        about_p1: "بدأت رحلتنا بشغف لخلق ملابس تعكس روح العصر. في GEL، نحن لا نصمم مجرد أزياء، بل نصنع تجربة فريدة تمزج بين الفخامة والراحة اليومية.",
-        about_p2: "كل قطعة في مجموعتنا مختارة بعناية لضمان أعلى مستويات الجودة وأدق التفاصيل التي تليق بذوقكم الرفيع.",
+        about_desc: "بدأت رحلتنا بشغف لصناعة ملابس تعكس روح العصر. في GEL، لا نكتفي بتصميم الأزياء بل نبتكر تجربة فريدة تجمع بين الفخامة والراحة اليومية.",
+        about_val1_title: "جودة عالية",
+        about_val1_desc: "مصنوعة من أقمشة قطنية ثقيلة وكتان فاخر مُصمم للراحة والاستدامة.",
+        about_val2_title: "تصميم بسيط وعصري",
+        about_val2_desc: "قصات واسعة (Boxy fit)، خطوط نظيفة، وتطريز ناعم يبرز الفخامة بهدوء.",
         shop_title: "المجموعة الكاملة",
         shop_subtitle: "اكتشف أحدث تصاميمنا الحصرية",
         add_to_cart: "أضف للسلة",
         added: "تمت الإضافة!",
-        lang_btn: "English"
+        lang_btn: "English",
+        ai_name: "مساعد GEL",
+        ai_online: "متصل",
+        ai_welcome: "مرحباً بك في GEL! أنا مساعدك الشخصي للأناقة. كيف يمكنني مساعدتك اليوم؟",
+        ai_placeholder: "اسأل عن الأناقة أو التواصل..."
     },
     en: {
+        nav_brand: "Gel",
         nav_home: "Home",
         nav_contact: "Contact",
         nav_about: "About",
@@ -52,13 +61,20 @@ const translations = {
         contact_send: "Send",
         contact_whatsapp: "Or contact us directly via WhatsApp:",
         about_title: "Our Vision at GEL",
-        about_p1: "Our journey began with a passion for creating clothes that reflect the spirit of the age. At GEL, we don't just design fashion; we craft a unique experience that blends luxury with daily comfort.",
-        about_p2: "Each piece in our collection is carefully selected to ensure the highest levels of quality and the finest details that suit your refined taste.",
+        about_desc: "Our journey began with a passion for creating clothes that reflect the spirit of the age. At GEL, we don't just design fashion; we craft a unique experience that blends luxury with daily comfort.",
+        about_val1_title: "Premium Quality",
+        about_val1_desc: "Crafted using heavy organic fabrics & fine linen built for comfort and longevity.",
+        about_val2_title: "Minimal Aesthetics",
+        about_val2_desc: "Boxy fits, clean cuts, and subtle embroidered details that stand out silently.",
         shop_title: "Full Collection",
         shop_subtitle: "Discover our latest exclusive designs",
         add_to_cart: "Add to Cart",
         added: "Added!",
-        lang_btn: "العربية"
+        lang_btn: "العربية",
+        ai_name: "GEL Assistant",
+        ai_online: "Online",
+        ai_welcome: "Welcome to GEL! I'm your AI style assistant. How can I help you today?",
+        ai_placeholder: "Ask about style or contact..."
     }
 };
 
@@ -68,8 +84,8 @@ function setLanguage(lang) {
     currentLang = lang;
     localStorage.setItem('gel_lang', lang);
     
-    // KEEP RTL for both languages as requested
-    document.documentElement.dir = 'rtl';
+    // Switch direction according to selected language
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
     
     // Update all elements with data-i18n
@@ -116,19 +132,18 @@ window.addEventListener('click', function(e) {
 
 // 1. وظيفة تشغيل الحركات عند تحميل الصفحة بالكامل
 function revealContent() {
-    const heroContent = document.querySelector('.hero-content');
-    const heroImage = document.querySelector('.hero-image');
+    const heroText = document.querySelector('.hero-text');
+    const heroLogo = document.querySelector('.hero-logo');
     const galleryItems = document.querySelectorAll('.gallery-item');
 
-    // إظهار قسم البراند (Hero Section) بنعومة بعد تأخير بسيط
     setTimeout(() => {
-        if (heroContent) {
-            heroContent.style.opacity = "1";
-            heroContent.style.transform = "translateY(0)";
+        if (heroText) {
+            heroText.style.opacity = "1";
+            heroText.style.transform = "translateY(0)";
         }
-        if (heroImage) {
-            heroImage.style.opacity = "1";
-            heroImage.style.transform = "translateX(0)";
+        if (heroLogo) {
+            heroLogo.style.opacity = "1";
+            heroLogo.style.transform = "translateX(0)";
         }
 
         // تشغيل حركة ظهور صور المنتجات بالتدريج

@@ -1,0 +1,34 @@
+<!-- AI Chat Widget Structure -->
+<div id="ai-chat-widget" class="ai-chat-widget">
+    <!-- Floating Chat Button -->
+    <button id="ai-chat-btn" class="ai-chat-btn" onclick="toggleAIChat()" aria-label="Open Chat">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <!-- Chat Window -->
+    <div id="ai-chat-window" class="ai-chat-window">
+        <div class="ai-chat-header">
+            <div class="ai-chat-info">
+                <img src="IMG/Logo.PNG" alt="GEL AI" class="ai-avatar">
+                <div class="ai-chat-status-text">
+                    <h4 data-i18n="ai_name">GEL Assistant</h4>
+                    <span class="status-online" data-i18n="ai_online">Online</span>
+                </div>
+            </div>
+            <button class="close-ai-chat" onclick="toggleAIChat()" aria-label="Close Chat">&times;</button>
+        </div>
+        
+        <div id="ai-chat-messages" class="ai-chat-messages">
+            <div class="message ai-message">
+                <p data-i18n="ai_welcome">Welcome to GEL! I'm your AI style assistant. How can I help you today?</p>
+            </div>
+        </div>
+
+        <div class="ai-chat-input-area">
+            <input type="text" id="ai-user-input" placeholder="Ask about style or contact..." data-i18n="ai_placeholder">
+            <button id="ai-send-btn" onclick="sendMessage()" aria-label="Send Message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>

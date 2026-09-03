@@ -1,5 +1,6 @@
 const translations = {
     ar: {
+        nav_brand: "GEL",
         nav_home: "الرئيسية",
         nav_contact: "تواصل معنا",
         nav_about: "من نحن",
@@ -27,9 +28,14 @@ const translations = {
         shop_title: "المجموعة الكاملة",
         shop_subtitle: "اكتشف أحدث تصاميمنا الحصرية",
         add_to_cart: "أضف للسلة",
-        added: "تمت الإضافة!"
+        added: "تمت الإضافة!",
+        ai_name: "مساعد GEL",
+        ai_online: "متصل",
+        ai_welcome: "مرحباً بك في GEL! أنا مساعدك الشخصي للأناقة. كيف يمكنني مساعدتك اليوم؟",
+        ai_placeholder: "اسأل عن الأناقة أو التواصل..."
     },
     en: {
+        nav_brand: "Gel",
         nav_home: "Home",
         nav_contact: "Contact",
         nav_about: "About",
@@ -57,7 +63,11 @@ const translations = {
         shop_title: "Full Collection",
         shop_subtitle: "Discover our latest exclusive designs",
         add_to_cart: "Add to Cart",
-        added: "Added!"
+        added: "Added!",
+        ai_name: "GEL Assistant",
+        ai_online: "Online",
+        ai_welcome: "Welcome to GEL! I'm your AI style assistant. How can I help you today?",
+        ai_placeholder: "Ask about style or contact..."
     }
 };
 
